@@ -3,9 +3,9 @@ package programmers;
 import java.util.*;
 
 //신규 아이디 추천
-//02012021
+//02012022
 
-public class p01022022 {
+public class p02012022 {
     public static void main(String[] args) throws Exception {
         Solution02 s = new Solution02();
 

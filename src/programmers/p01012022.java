@@ -2,8 +2,8 @@ package programmers;
 
 import java.util.*;
 //로또의 최고 순위와 최저 순위
-//01012021
-public class p01012021 {
+//01012022
+public class p01012022 {
     public static void main(String[] args) throws Exception {
         
         Solution s = new Solution();
