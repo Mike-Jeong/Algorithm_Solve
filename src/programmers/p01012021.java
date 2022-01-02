@@ -1,6 +1,5 @@
 package programmers;
 
-import java.lang.reflect.Array;
 import java.util.*;
 //로또의 최고 순위와 최저 순위
 //01012021
