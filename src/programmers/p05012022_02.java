@@ -46,3 +46,16 @@ class Solution06 {
         return answer;
     }
 }
+
+/*
+class Solution {
+    public int solution(int[] numbers) {
+        int sum = 45;
+        for (int i : numbers) {
+            sum -= i;
+        }
+        return sum;
+    }
+}
+// 엌ㅋㅋㅋㅋ...... 빼는 방법도 있구나........
+*/
