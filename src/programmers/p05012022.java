@@ -17,4 +17,8 @@ public class p05012022 {
 
 class Solution04 {
     
+    public int solution(int[][] board, int[] moves) {
+        int answer = 0;
+        return answer;
+    }
 }
