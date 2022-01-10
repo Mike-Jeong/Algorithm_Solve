@@ -19,7 +19,22 @@ public class p10012022 {
 class Solution12 {
 
     public int[] solution(int[] array, int[][] commands) {
-        int[] answer = {};
+
+        int[] answer = new int[commands.length];
+        int index = 0;
+        for (int[] is : commands) {
+            
+            int[] narray = new int[is[1] - is[0] + 1];
+
+            for (int i = 0; i < is[1] - is[0] + 1; i++) {
+                narray[i] = array[is[0]-1+i];
+            }
+
+            Arrays.sort(narray);
+            answer[index] = narray[is[2]-1];
+            index++;
+
+        }
         return answer;
     }
 }
