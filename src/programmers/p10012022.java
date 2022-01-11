@@ -2,24 +2,24 @@ package programmers;
 
 import java.util.*;
 
-//완주하지 못한 선수
+//K번째수
 //10012022
 
 public class p10012022 {
     public static void main(String[] args) throws Exception {
-        Solution11 s = new Solution11();
+        Solution12 s = new Solution12();
 
-        String[] a = {"leo", "kiki", "eden"};
-        String[] b = {"eden", "kiki"};
+        int[] a = {1, 5, 2, 6, 3, 7, 4};
+        int[][] b = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
 
         System.out.println(s.solution(a, b));
     }
 }
 
-class Solution11 {
+class Solution12 {
 
-    public String solution(String[] participant, String[] completion) {
-        String answer = "";
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = {};
         return answer;
     }
 }
