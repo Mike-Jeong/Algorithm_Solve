@@ -10,8 +10,8 @@ public class p12012022 {
         Solution14 s = new Solution14();
 
         int n = 5;
-        int[] a = {1, 5, 2, 6, 3, 7, 4};
-        int[] b = {1, 5, 2, 6, 3, 7, 4};
+        int[] a = {2, 4};
+        int[] b = {1, 3, 5};
 
         System.out.println(s.solution(n, a, b));
     }
