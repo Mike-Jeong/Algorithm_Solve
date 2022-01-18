@@ -20,7 +20,7 @@ class Solution21 {
 
     public int[] solution(int[] numbers) {
         
-        Set<Integer> resultset = new HashSet<>();
+        Set<Integer> resultset = new TreeSet<>();
 
         for (int i = 0; i < numbers.length -1; i++) {
             for (int j = i+1; j < numbers.length; j++) {
@@ -36,8 +36,33 @@ class Solution21 {
             i++;
         }
 
-        Arrays.sort(answer);
-
         return answer;
     }
 }
+
+
+/*public int[] solution(int[] numbers) {
+        
+    Set<Integer> resultset = new HashSet<>();
+
+    for (int i = 0; i < numbers.length -1; i++) {
+        for (int j = i+1; j < numbers.length; j++) {
+            resultset.add(numbers[i] + numbers[j]);
+        }
+    }
+
+    int[] answer = new int[resultset.size()];
+    int i = 0;
+
+    for (Integer integer : resultset) {
+        answer[i] = integer;
+        i++;
+    }
+
+    Arrays.sort(answer);
+
+    return answer;
+}
+}*/
+
+//treeset을 쓴거 보다 위의 코드가 더 빠르다... 왜인지 모르겠다...
