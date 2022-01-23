@@ -37,7 +37,7 @@ class Solution23 {
             return S;
         } else {
 
-            if (scoville.size() <= 1 ) {
+            if (scoville.size()== 1 ) {
                 return -1;
             }
             int a = scoville.poll();

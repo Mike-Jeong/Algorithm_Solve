@@ -9,7 +9,7 @@ public class p23012022 {
     public static void main(String[] args) throws Exception {
         Solution24 s = new Solution24();
 
-        int a = 7;
+        int a = 9;
 
         System.out.println(s.solution(a));
 
@@ -19,7 +19,22 @@ public class p23012022 {
 class Solution24 {
 
     public String solution(int n) {
+
+
         String answer = "";
+
+        while (n > 0) {
+            int left = n % 3;
+            n /= 3;
+            
+            if (left == 0) {
+                left = 4;
+                n -= 1;
+            }
+
+            answer = left + answer;
+        }
+
         return answer;
     }
 }
