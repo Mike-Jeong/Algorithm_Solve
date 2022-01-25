@@ -20,7 +20,20 @@ public class p25012022 {
 class Solution26 {
 
     public int solution(int[][] sizes) {
-        int answer = 0;
+
+        int length_a = 0;
+        int length_b = 0;
+
+        for (int[] is : sizes) {
+            
+            Arrays.sort(is);
+
+           length_a = Math.max(length_a, is[0]);
+           length_b = Math.max(length_b, is[1]);
+
+        }
+        
+        int answer = length_a * length_b;
         return answer;
     }
 }
