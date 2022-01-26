@@ -8,10 +8,7 @@ import java.util.*;
 public class p26012022 {
     public static void main(String[] args) throws Exception {
         Solution27 s = new Solution27();
-
         int a = 10;
-
-
         System.out.println(s.solution(a));
 
     }
@@ -20,14 +17,16 @@ public class p26012022 {
 class Solution27 {
 
     public int solution(int n) {
-        
+
         int a = 1;
+
         while (a<n) {
             if (n%a == 1) {
                 break;
             }
             a++;
         }
+
         int answer = a;
         return answer;
     }
