@@ -8,10 +8,10 @@ import java.util.*;
 public class p27012022 {
     public static void main(String[] args) throws Exception {
         Solution28 s = new Solution28();
-        
-        int a = 10;
-        int b = 10;
-        int c = 10;
+
+        int a = 3;
+        int b = 20;
+        int c = 4;//10
 
         System.out.println(s.solution(a,b,c));
 
@@ -21,7 +21,20 @@ public class p27012022 {
 class Solution28 {
 
     public long solution(int price, int money, int count) {
-        long answer = -1;
+
+        long totalprice = 0;
+        int usecount = 1;
+
+        while (usecount <= count)
+        {
+            totalprice += (price * usecount);
+            usecount++;
+        }
+
+        long answer = totalprice - money;
+        if (answer <= 0) {
+            answer = 0;
+        }
 
         return answer;
     }
