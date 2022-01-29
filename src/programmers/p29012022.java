@@ -8,9 +8,7 @@ import java.util.*;
 public class p29012022 {
     public static void main(String[] args) throws Exception {
         Solution30 s = new Solution30();
-
         String a = "qwer";
-
         System.out.println(s.solution(a));
 
     }
