@@ -2,8 +2,8 @@ package programmers;
 
 import java.util.*;
 
-//다트 게임
-//30012022
+//같은 숫자는 싫어
+//31012022
 
 public class p31012022 {
     public static void main(String[] args) throws Exception {
