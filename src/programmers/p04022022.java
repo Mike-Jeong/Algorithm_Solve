@@ -17,8 +17,38 @@ public class p04022022 {
 }
 
 class Solution36 {
+
+    int target;
+    int[] numbers;
+    int answer = 0;
+
     public int solution(int[] numbers, int target) {
-        int answer = 0;
+        this.numbers = numbers;
+        this.target = target;
+
+        recursion(0, 0);
+
         return answer;
+    }
+
+    void recursion(int sum, int index)
+    {
+        if (index == numbers.length) {
+            if (sum == target) {
+                answer ++;
+            }
+            return;
+        }
+
+        sum += numbers[index];
+
+        recursion(sum, index+1);
+
+        sum -= (2 * numbers[index]);
+
+        recursion(sum, index + 1);
+
+
+
     }
 }
