@@ -2,8 +2,6 @@ package programmers;
 
 import java.util.*;
 
-import apple.laf.JRSUIUtils.Tree;
-
 //행렬 테두리 회전하기
 //05022022
 
@@ -40,9 +38,11 @@ class Solution37 {
 
         }
 
-
-
-        int[] answer = new int[3];
+        int[] answer = new int[queries.length];
+        
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = rotate(queries[i]);
+        }
         return answer;
     }
 
@@ -50,24 +50,52 @@ class Solution37 {
 
         TreeSet<Integer> treeSet = new TreeSet<Integer>();
 
-        int column_starting
+        int row_starting = query[0] -1;
+        int column_starting = query[1] -1;
+        int row_ending = query[2] -1;
+        int column_ending = query[3] -1;
 
-        for (int column_starting = query[1] - 1; column_starting <= query[3] - 1; column_starting++) {
+        int past = 0;
+        int current = 0;
+
+        for (int i = column_starting; i <= column_ending ; i++) {
             
+            treeSet.add(matrix[row_starting][i]);
+            current = matrix[row_starting][i];
+            matrix[row_starting][i] = past;
+            past = current;
+
         }
 
-        for (int column_starting = query[1] - 1; column_starting <= query[3] - 1; column_starting++) {
+        for (int i = row_starting + 1; i <= row_ending ; i++) {
             
+            treeSet.add(matrix[i][column_ending]);
+            current = matrix[i][column_ending];
+            matrix[i][column_ending] = past;
+            past = current;
+
         }
 
-        for (int column_starting = query[1] - 1; column_starting <= query[3] - 1; column_starting++) {
+        for (int i = column_ending - 1; i >= column_starting ; i--) {
             
+            treeSet.add(matrix[row_ending][i]);
+            current = matrix[row_ending][i];
+            matrix[row_ending][i] = past;
+            past = current;
+
         }
 
-        for (int column_starting = query[1] - 1; column_starting <= query[3] - 1; column_starting++) {
+        for (int i = row_ending - 1; i > row_starting ; i--) {
             
+            treeSet.add(matrix[i][column_starting]);
+            current = matrix[i][column_starting];
+            matrix[i][column_starting] = past;
+            past = current;
+
         }
 
-        return 0;
+        matrix[row_starting][column_starting] = past;
+
+        return treeSet.first();
     }
 }
