@@ -19,7 +19,46 @@ public class p06022022 {
 class Solution38 {
 
     public String[] solution(String[] strings, int n) {
-        String[] answer = {};
+        Map<Character, TreeSet<String>> treemap = new HashMap<>();
+
+        for (String string : strings) {
+
+            if (treemap.containsKey(string.charAt(n))) {
+
+                treemap.get(string.charAt(n)).add(string);
+            
+            } else {
+                TreeSet<String> values = new TreeSet<>();
+                values.add(string);
+                treemap.put(string.charAt(n), values);
+            }
+        }
+
+        List<Character> keys = new LinkedList<>();
+        List<String> ans = new LinkedList<>();
+
+        for (char c : treemap.keySet()) {
+            keys.add(c);
+        }
+
+        Collections.sort(keys);
+
+        for (Character character : keys) {
+
+            for (String string : treemap.get(character)) {
+                ans.add(string);   
+                System.out.println(string);
+            }
+        }
+
+        int i = 0;
+        String[] answer = new String[ans.size()];
+
+        for (String string : ans) {
+            answer[i] = string;
+            i++;
+        }
+
         return answer;
     }
 }
