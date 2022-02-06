@@ -2,7 +2,7 @@ package programmers;
 
 import java.util.*;
 
-//행렬 테두리 회전하기
+//문자열 내 마음대로 정렬하기
 //06022022
 
 public class p06022022 {
@@ -47,7 +47,6 @@ class Solution38 {
 
             for (String string : treemap.get(character)) {
                 ans.add(string);   
-                System.out.println(string);
             }
         }
 
