@@ -18,7 +18,19 @@ public class p08022022 {
 class Solution40 {
 
     public String solution(String s) {
-        String answer = "";
+
+        String[] array = s.split(" ");
+        int[] ans = new int[array.length];
+
+        int i = 0;
+        for (String str : array) {
+            ans[i] = Integer.parseInt(str);
+            i++;
+        }
+
+        Arrays.sort(ans);
+
+        String answer = String.valueOf(ans[0]) + " " + String.valueOf(ans[ans.length-1]);
         return answer;
     }
 }
