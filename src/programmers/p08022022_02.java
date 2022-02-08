@@ -37,6 +37,10 @@ public class p08022022_02 {
 
         aa.printArray(e);
 
+        int[][] f = aa.fillArray_diagonal_Re(5,4);
+
+        aa.printArray(f);
+
     }
 }
 
@@ -110,15 +114,38 @@ class Lab6 {
     {
 
         int[][] array = new int[a][b];
-        int count = 0;
+        int count = 1;
         
         for (int cycle = 0; cycle <= (b * 2) - 1; cycle++) {
             for (int i = 0; i < a; i++) {
-                
+
                 int j = cycle - i;
 
                 if (j>=0 && j < b) {
                     array[i][j] = count;
+                    count++;
+                }
+
+            }
+        }
+        
+
+        return array;
+    }
+
+    public int[][] fillArray_diagonal_Re(int a, int b)
+    {
+
+        int[][] array = new int[a][b];
+        int count = 1;
+        
+        for (int cycle = 0; cycle <= (a * 2) - 1; cycle++) {
+            for (int i = 0; i < b; i++) {
+
+                int j = cycle - i;
+
+                if (j>=0 && j < a) {
+                    array[j][i] = count;
                     count++;
                 }
 
