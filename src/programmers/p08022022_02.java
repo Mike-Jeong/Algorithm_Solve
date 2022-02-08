@@ -2,6 +2,8 @@ package programmers;
 
 import java.util.*;
 
+import backjoon.b2588;
+
 //배열 관련 알고리즘 풀이(스터디 그룹원 질문 풀이)
 //08022022
 //2
@@ -30,6 +32,10 @@ public class p08022022_02 {
         int[][] d = aa.diagonalShift(array_0);
 
         aa.printArray(d);
+
+        int[][] e = aa.fillArray_diagonal(5,4);
+
+        aa.printArray(e);
 
     }
 }
@@ -98,6 +104,29 @@ class Lab6 {
         }
 
         return transformedArr;
+    }
+
+    public int[][] fillArray_diagonal(int a, int b)
+    {
+
+        int[][] array = new int[a][b];
+        int count = 0;
+        
+        for (int cycle = 0; cycle <= (b * 2) - 1; cycle++) {
+            for (int i = 0; i < a; i++) {
+                
+                int j = cycle - i;
+
+                if (j>=0 && j < b) {
+                    array[i][j] = count;
+                    count++;
+                }
+
+            }
+        }
+        
+
+        return array;
     }
 
     public void printArray(int[][] arr) {
