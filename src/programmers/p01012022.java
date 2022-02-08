@@ -35,10 +35,6 @@ class Solution {
         int correct = 0;
         int numof_0 = 0;
 
-        for (int a = 0; a < lottos.length; a++) {
-            System.out.println(lottos[a] + "&&&& " + win_nums[a]);
-        }
-
         for (int i = 0; i < lottos.length; i++) {
 
             if (lottos[i] == 0) {
