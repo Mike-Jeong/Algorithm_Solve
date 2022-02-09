@@ -2,8 +2,6 @@ package programmers;
 
 import java.util.*;
 
-import backjoon.b2588;
-
 //배열 관련 알고리즘 풀이( 그룹코딩 스터디 그룹원 질문 풀이)
 //08022022
 //2
@@ -70,6 +68,19 @@ class Lab6 {
         }
 
         return transformedArr;
+
+        /* 
+        for (int i = 0; i < arr.length / 2; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                int temp = arr[i][j];
+                arr[i][j] = arr[arr.length - 1 - i][j];
+                arr[arr.length - 1 - i][j] = temp;
+
+            }
+        }
+
+        return arr;
+        */
     }
 
     public int[][] verticalMirror(int[][] arr) {
@@ -83,6 +94,19 @@ class Lab6 {
         }
 
         return transformedArr;
+
+        /* 
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length / 2; j++) {
+                int temp = arr[i][j];
+                arr[i][j] = arr[i][arr[0].length - 1 - j];
+                arr[i][arr[0].length - 1 - j] = temp;
+
+            }
+        }
+
+        return arr;
+        */
     }
 
     public int[][] diagonalShift(int[][] arr) {
@@ -108,6 +132,50 @@ class Lab6 {
         }
 
         return transformedArr;
+
+        /* 
+         int next = -1;
+
+        for (int j = 0; j < arr[0].length; j++) {
+
+            int temp = arr[0][j];
+
+            for (int i = 1; i <= arr.length; i++) {
+
+                if (i == arr.length) {
+                    arr[0][j]= temp;  
+                    continue;
+                }
+
+                next = arr[i][j]; 
+                arr[i][j]= temp;
+    
+                temp = next;
+    
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+
+            int temp = arr[i][0];
+
+            for (int j = 1; j <= arr[0].length; j++) {
+                
+                try {
+                    next = arr[i][j]; 
+                    arr[i][j]= temp;
+        
+                    temp = next;
+        
+                    } catch (Exception e) {
+                        arr[i][0]= temp;                
+                    }
+            }
+        }
+
+
+        return arr;
+        */
     }
 
     public int[][] fillArray_diagonal(int a, int b)
