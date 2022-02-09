@@ -9,7 +9,7 @@ public class p09022022 {
     public static void main(String[] args) throws Exception {
         Solution41 s = new Solution41();
 
-        String a = "pPoooyY";
+        String a = "oooo";
 
         System.out.println(s.solution(a));
     }
@@ -18,10 +18,21 @@ public class p09022022 {
 class Solution41 {
 
     boolean solution(String s) {
-        boolean answer = true;
 
-        System.out.println("Hello Java");
+        int check = 0;
 
-        return answer;
+        s = s.toLowerCase();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'p' || s.charAt(i) == 'P') {
+                check += 1;
+            }
+
+            if (s.charAt(i) == 'y' || s.charAt(i) == 'Y') {
+                check -= 1;
+            }
+        }
+
+        return check == 0 ? true : false;
     }
 }
