@@ -2,14 +2,14 @@ package programmers;
 
 import java.util.*;
 
-//문자열 내 p와 y의 개수
+//문자열 내림차순으로 배치하기
 //10022022
 
 public class p10022022 {
     public static void main(String[] args) throws Exception {
         Solution42 s = new Solution42();
 
-        String a = "oooo";
+        String a = "Zbcdefg";
 
         System.out.println(s.solution(a));
     }
@@ -18,7 +18,10 @@ public class p10022022 {
 class Solution42 {
 
     public String solution(String s) {
-        String answer = "";
+
+        char[] string = s.toCharArray();
+        Arrays.sort(string);
+        String answer = new StringBuilder(new String(string)).reverse().toString();
         return answer;
     }
 }
