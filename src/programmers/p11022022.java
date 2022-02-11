@@ -9,7 +9,7 @@ public class p11022022 {
     public static void main(String[] args) throws Exception {
         Solution43 s = new Solution43();
 
-        String a = "1e22";
+        String a = "a234";
 
         System.out.println(s.solution(a));
     }
