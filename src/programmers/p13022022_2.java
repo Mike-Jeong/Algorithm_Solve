@@ -18,7 +18,20 @@ public class p13022022_2 {
 class Solution46 {
 
     public boolean solution(String[] phone_book) {
-        boolean answer = true;
-        return answer;
+        
+        Arrays.sort(phone_book);
+        Set<String> set = new HashSet<>();
+        for (String string : phone_book) {
+            
+            for (String number : set) {
+                if (number.length() < string.length() && string.substring(0, number.length()).equals(number)) {
+                    return false;
+                }
+            }
+            
+            set.add(string);
+        }
+
+        return true;
     }
 }
