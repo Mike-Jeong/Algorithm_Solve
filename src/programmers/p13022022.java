@@ -19,22 +19,48 @@ class Solution45 {
 
     public int solution(String s)
     {
-        return recursion(s);
+        Stack<Character> stack = new Stack<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            
+            if (!stack.empty() && stack.peek() == s.charAt(i)) {
+                stack.pop();
+                continue;
+            }
+
+            stack.add(s.charAt(i));
+
+        }
+
+        return stack.empty() ? 1 : 0;
+
+
+    }
+}
+
+/* 
+ public int solution(String s)
+    {
+        StringBuilder sb = new StringBuilder(s);
+        return recursion(sb);
     }
 
-    public int recursion(String s){
+    public int recursion(StringBuilder sb){
 
-        if (s.length() == 0) {
+        if (sb.length() == 0) {
             return 1;
         }
 
-        for (int i = 0; i < s.length() - 1; i++) {
-            if (s.charAt(i) == s.charAt(i+1)) {
-                s = s.replaceAll(s.substring(i, i+2), "");
-                return recursion(s);
+        for (int i = 0; i < sb.length() - 1; i++) {
+            if (sb.charAt(i) == sb.charAt(i+1)) {
+                sb.replace(i, i + 2, "");
+                return recursion(sb);
             }
         }
 
         return 0;
     }
-}
+*/
+
+//재귀함수로 시도
+//But 효율성 bad ㅠㅠ
