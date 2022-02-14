@@ -19,17 +19,17 @@ class Solution46 {
 
     public boolean solution(String[] phone_book) {
         
-        Arrays.sort(phone_book);
         Set<String> set = new HashSet<>();
         for (String string : phone_book) {
-            
-            for (String number : set) {
-                if (number.length() < string.length() && string.substring(0, number.length()).equals(number)) {
+            set.add(string);
+        }
+        
+        for (String string : set) {
+            for (int i = 1; i < string.length(); i++) {
+                if (set.contains(string.substring(0,i))) {
                     return false;
                 }
             }
-            
-            set.add(string);
         }
 
         return true;
