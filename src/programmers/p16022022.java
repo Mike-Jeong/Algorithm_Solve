@@ -32,3 +32,5 @@ class Solution49 {
         return answer;
     }
 }
+
+//5분컷
