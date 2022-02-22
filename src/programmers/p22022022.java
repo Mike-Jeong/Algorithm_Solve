@@ -23,7 +23,8 @@ class Solution55 {
 
         String[] a_signs = expression.replaceAll("\\w", "").split("");
         String[] a_nums = expression.split("\\D");
-        String[][] orders = {{"+","-","*"},{"+","*","-"},{"-","*","+"},{"-","+","*"},{"*","+","-"},{"*","-","+"}};
+        String[][] orders = { { "+", "-", "*" }, { "+", "*", "-" }, { "-", "*", "+" }, { "-", "+", "*" },
+                { "*", "+", "-" }, { "*", "-", "+" } };
 
         for (String[] order : orders) {
 
@@ -37,7 +38,7 @@ class Solution55 {
         return answer;
     }
 
-    public void recursion(String[] order, int index, ArrayList<String> signs, ArrayList<String> nums){
+    public void recursion(String[] order, int index, ArrayList<String> signs, ArrayList<String> nums) {
 
         if (index == 3) {
             Long final_sum = Math.abs(Long.parseLong(nums.get(0)));
@@ -48,23 +49,26 @@ class Solution55 {
         String sign = order[index];
 
         while (signs.contains(sign)) {
-            
+
             Long sum;
 
             if (sign.equals("+")) {
-                sum = (Long.parseLong(nums.get(signs.indexOf(sign))) + Long.parseLong(nums.get(signs.indexOf(sign) + 1)));
+                sum = (Long.parseLong(nums.get(signs.indexOf(sign)))
+                        + Long.parseLong(nums.get(signs.indexOf(sign) + 1)));
 
             } else if (sign.equals("-")) {
-                sum = (Long.parseLong(nums.get(signs.indexOf(sign))) - Long.parseLong(nums.get(signs.indexOf(sign) + 1)));
+                sum = (Long.parseLong(nums.get(signs.indexOf(sign)))
+                        - Long.parseLong(nums.get(signs.indexOf(sign) + 1)));
 
             } else {
-                sum = (Long.parseLong(nums.get(signs.indexOf(sign))) * Long.parseLong(nums.get(signs.indexOf(sign) + 1)));
+                sum = (Long.parseLong(nums.get(signs.indexOf(sign)))
+                        * Long.parseLong(nums.get(signs.indexOf(sign) + 1)));
             }
 
             nums.set(signs.indexOf(sign), String.valueOf(sum));
             nums.remove(signs.indexOf(order[index]) + 1);
             signs.remove(sign);
-        
+
         }
 
         recursion(order, index + 1, signs, nums);
