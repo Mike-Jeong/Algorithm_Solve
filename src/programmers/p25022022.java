@@ -1,12 +1,11 @@
 package programmers;
 
-import java.util.*;
-
 //조이스틱
 //25022022
 
 public class p25022022 {
     public static void main(String[] args) throws Exception {
+
         Solution58 s = new Solution58();
 
         String a = "ABAAB";
@@ -20,19 +19,17 @@ class Solution58 {
     public int solution(String name) {
 
         int answer = 0;
-        int move = name.length() -1;
+        int move = name.length() - 1;
         int index;
 
         for (int i = 0; i < name.length(); i++) {
-            
+
             int alpha = Math.abs('A' - name.charAt(i));
-
             int s = Math.min(alpha, 26 - alpha);
-
             answer += s;
 
             index = i + 1;
-            while(index < name.length() && name.charAt(index) == 'A'){
+            while (index < name.length() && name.charAt(index) == 'A') {
                 index++;
             }
 
