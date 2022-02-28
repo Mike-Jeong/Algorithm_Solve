@@ -19,7 +19,19 @@ public class p28022022 {
 class Solution61 {
 
     public String solution(String s) {
-        String answer = "";
+
+        String[] nums_s = s.split(" ");
+        int[] nums = new int[nums_s.length];
+
+        int i = 0;
+        for (String string : nums_s) {
+            nums[i] = Integer.parseInt(string);
+            i++;
+        }
+
+        Arrays.sort(nums);
+
+        String answer = String.valueOf(nums[0]) + " " + String.valueOf(nums[nums.length - 1]);
         return answer;
     }
 }
