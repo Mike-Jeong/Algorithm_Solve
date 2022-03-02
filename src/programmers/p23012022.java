@@ -20,8 +20,7 @@ class Solution24 {
 
     public String solution(int n) {
 
-
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
 
         while (n > 0) {
             int left = n % 3;
@@ -32,9 +31,9 @@ class Solution24 {
                 n -= 1;
             }
 
-            answer = left + answer;
+            sb.insert(0, left);
         }
 
-        return answer;
+        return sb.toString();
     }
 }
