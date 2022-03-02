@@ -10,7 +10,7 @@ public class p03032022 {
 
         Solution64 s = new Solution64();
 
-        int a = 10;
+        int a = 15;
 
         System.out.println(s.solution(a));
     }
@@ -18,8 +18,33 @@ public class p03032022 {
 
 class Solution64 {
 
+    int count = 0;
+    int target;
+
     public int solution(int n) {
-        int answer = 0;
-        return answer;
+
+        target = n;
+
+        for (int i = 0; i < n; i++) {
+            recursion(i + 1);
+        }
+
+        return count;
+    }
+
+    public void recursion(int n) {
+
+        int sum = 0;
+
+        while (sum < target) {
+            
+            sum += n;
+            n++;
+        }
+
+        if (sum == target) {
+            count++;
+        }
+
     }
 }
