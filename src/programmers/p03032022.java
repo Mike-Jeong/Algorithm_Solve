@@ -1,7 +1,5 @@
 package programmers;
 
-import java.util.*;
-
 //숫자의 표현
 //03032022
 
