@@ -2,7 +2,7 @@ package programmers;
 
 import java.util.*;
 
-//주식가격
+//위장
 //05032022
 
 public class p05032022 {
@@ -10,7 +10,7 @@ public class p05032022 {
 
         Solution66 s = new Solution66();
 
-        int[][] a = {{1,2,3,5},{5,6,7,8},{4,3,2,1}};
+        String[][] a = { {"yellowhat", "headgear"}, {"bluesunglasses", "eyewear"}, {"green_turban", "headgear"} };
 
         System.out.println(s.solution(a));
     }
@@ -18,12 +18,8 @@ public class p05032022 {
 
 class Solution66 {
 
-    int solution(int[][] land) {
+    public int solution(String[][] clothes) {
         int answer = 0;
-
-        // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-        System.out.println("Hello Java");
-
         return answer;
     }
 }
