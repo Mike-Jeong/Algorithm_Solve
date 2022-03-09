@@ -1,6 +1,9 @@
 package programmers;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
+
+//import java.util.*;
 
 //영어 끝말잇기
 //09032022
@@ -10,8 +13,8 @@ public class p09032022 {
 
         Solution70 s = new Solution70();
 
-        int a = 3;
-        String[] b = {"tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"};
+        int a = 2;
+        String[] b = { "hello", "one", "even", "never", "now", "world", "draw"};
 
         System.out.println(s.solution(a, b));
     }
@@ -20,10 +23,18 @@ public class p09032022 {
 class Solution70 {
 
     public int[] solution(int n, String[] words) {
-        int[] answer = {};
+        int[] answer = { 0, 0 };
 
-        // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다. 
-        System.out.println("Hello Java");
+        String now = words[0];
+
+        for (int i = 1; i < words.length; i++) {
+            if (now.charAt(now.length() - 1) != words[i].charAt(0)) {
+                answer[0] = (i % n) + 1;
+                answer[1] = answer[0]  / answer[0];
+                break;
+            }
+            now = words[i];
+        }
 
         return answer;
     }
