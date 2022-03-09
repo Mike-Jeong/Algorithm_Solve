@@ -1,9 +1,6 @@
 package programmers;
 
-import java.util.HashSet;
-import java.util.Set;
-
-//import java.util.*;
+import java.util.*;
 
 //영어 끝말잇기
 //09032022
@@ -13,8 +10,8 @@ public class p09032022 {
 
         Solution70 s = new Solution70();
 
-        int a = 2;
-        String[] b = { "hello", "one", "even", "never", "now", "world", "draw"};
+        int a = 3;
+        String[] b = { "tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"};
 
         System.out.println(s.solution(a, b));
     }
@@ -23,17 +20,20 @@ public class p09032022 {
 class Solution70 {
 
     public int[] solution(int n, String[] words) {
-        int[] answer = { 0, 0 };
 
-        String now = words[0];
+        Set<String> word_s = new HashSet<>();
+        int[] answer = {0,0};
 
+        word_s.add(words[0]);
         for (int i = 1; i < words.length; i++) {
-            if (now.charAt(now.length() - 1) != words[i].charAt(0)) {
+
+            if (word_s.contains(words[i]) || words[i].charAt(0) != words[i - 1].charAt(words[i - 1].length()-1)) {
                 answer[0] = (i % n) + 1;
-                answer[1] = answer[0]  / answer[0];
+                answer[1] = (i / n) + 1;
                 break;
             }
-            now = words[i];
+
+            word_s.add(words[i]);
         }
 
         return answer;
