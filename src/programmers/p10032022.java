@@ -11,8 +11,8 @@ public class p10032022 {
         Solution71 s = new Solution71();
 
         int a = 8;
-        int b = 4;
-        int c = 7;
+        int b = 1;
+        int c = 2;
 
         System.out.println(s.solution(a, b, c));
     }
@@ -21,11 +21,18 @@ public class p10032022 {
 class Solution71 {
 
     public int solution(int n, int a, int b) {
-        int answer = 0;
 
-        // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-        System.out.println("Hello Java");
+        int round = 1;
+        int group_a = (int) Math.ceil((double) a / 2);
+        int group_b = (int) Math.ceil((double) b / 2);
 
-        return answer;
+        while (group_a != group_b) {
+
+            group_a = (int) Math.ceil((double) group_a / 2);
+            group_b = (int) Math.ceil((double) group_b / 2);
+            round++;
+        }
+
+        return round;
     }
 }
