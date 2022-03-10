@@ -10,29 +10,52 @@ public class p10032022_02 {
 
         Solution72 s = new Solution72();
 
-        int a = 8;
-        int b = 1;
-        int c = 2;
+       // String a = "Week 1_Course Explanation/it's fun/it's awesome_Hello World_Types of Programming Languages|Week 2_Console output_Variables_Primitive Types|Week 3_Casting_Operator_String_Console input";
+        String a = "Apple////|Orange/asdf";
 
-        System.out.println(s.solution(a, b, c));
+        System.out.println(s.solution(a));
     }
 }
 
 class Solution72 {
 
-    public int solution(int n, int a, int b) {
+    public String solution(String s) {
 
-        int round = 1;
-        int group_a = (int) Math.ceil((double) a / 2);
-        int group_b = (int) Math.ceil((double) b / 2);
+        StringBuilder sb = new StringBuilder();
 
-        while (group_a != group_b) {
+        String[] list1 = s.split("\\|");
 
-            group_a = (int) Math.ceil((double) group_a / 2);
-            group_b = (int) Math.ceil((double) group_b / 2);
-            round++;
+        for (int i = 0; i < list1.length; i++) {
+
+            String[] list2 = list1[i].split("\\_");
+
+            sb.append(i + 1);
+            sb.append(") ");
+            sb.append(list2[0]);
+            sb.append("\n");
+
+            for (int j = 1; j < list2.length; j++) {
+
+                String[] list3 = list2[j].split("\\/");
+
+                sb.append("    ");
+                char alpha = (char)(j + 96);
+                int iter = (j - 1) / 26;
+                for (int k = 0; k < iter + 1; k++) {       
+                    sb.append(alpha);
+                }
+                sb.append(") ");
+                sb.append(list3[0]);
+                sb.append("\n");
+
+                for (int k = 1; k < list3.length; k++) {
+                    sb.append("        ");
+                    sb.append(list3[k]);
+                    sb.append("\n");
+                }
+            }
         }
 
-        return round;
+        return sb.toString();
     }
 }
