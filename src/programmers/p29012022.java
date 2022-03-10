@@ -1,6 +1,6 @@
 package programmers;
 
-import java.util.*;
+//import java.util.*;
 
 //가운데 글자 가져오기
 //29012022

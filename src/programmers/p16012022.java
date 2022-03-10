@@ -1,8 +1,5 @@
 package programmers;
 
-import java.util.*;
-import java.util.stream.Collectors;
-
 //약수의 개수와 덧셈
 //16012022
 

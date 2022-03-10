@@ -22,7 +22,7 @@ class Solution {
         Arrays.sort(lottos);
         Arrays.sort(win_nums);
 
-        Map map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         map.put(6, 1);
         map.put(5, 2);
         map.put(4, 3);

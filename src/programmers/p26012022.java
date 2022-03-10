@@ -1,6 +1,6 @@
 package programmers;
 
-import java.util.*;
+//import java.util.*;
 
 //나머지가 1이 되는 수 찾기
 //26012022

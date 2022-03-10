@@ -10,9 +10,9 @@ public class p12012022 {
     public static void main(String[] args) throws Exception {
         Solution14 s = new Solution14();
 
-        int n = 24;
-        int[] a = { 12, 13, 16, 17, 19, 20, 21, 22 };
-        int[] b = { 1, 22, 16, 18, 9, 10 };
+        //int n = 24;
+        //int[] a = { 12, 13, 16, 17, 19, 20, 21, 22 };
+        //int[] b = { 1, 22, 16, 18, 9, 10 };
 
         int n1 = 5;
         int[] a1 = { 3, 5 };

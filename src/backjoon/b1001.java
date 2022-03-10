@@ -11,5 +11,6 @@ public class b1001 {
 		a = sc.nextInt();
 		b = sc.nextInt();
 		System.out.println(a - b);
+		sc.close();
     }
 }

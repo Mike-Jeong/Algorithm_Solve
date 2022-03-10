@@ -2,13 +2,13 @@ package programmers;
 
 //import java.util.*;
 
-//예상 대진표
+//기둥코딩 질문 답변
 //10032022
 
-public class p10032022 {
+public class p10032022_02 {
     public static void main(String[] args) throws Exception {
 
-        Solution71 s = new Solution71();
+        Solution72 s = new Solution72();
 
         int a = 8;
         int b = 1;
@@ -18,7 +18,7 @@ public class p10032022 {
     }
 }
 
-class Solution71 {
+class Solution72 {
 
     public int solution(int n, int a, int b) {
 
@@ -34,15 +34,5 @@ class Solution71 {
         }
 
         return round;
-    }// 일단 통과
-}
-
-
-/*
- public int solution(int n, int a, int b)
-    {
-        return Integer.toBinaryString((a-1)^(b-1)).length();
     }
-*/
-
-// xor 제대로 확인 후 이해하기
+}

@@ -21,7 +21,7 @@ class Solution05 {
     public int solution(int[][] board, int[] moves) {
 
         int answer = 0;
-        ArrayList basket = new ArrayList<Integer>();
+        ArrayList<Integer> basket = new ArrayList<Integer>();
         //LinkedList basket = new LinkedList<Integer>();
 
         // 두 방법을 실행했을때, ArrayList를 사용한 방법이 조금 더 빠른 실행시간을 보였다.

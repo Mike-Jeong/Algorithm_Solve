@@ -1,6 +1,6 @@
 package programmers;
 
-import java.util.*;
+//import java.util.*;
 
 //배열 관련 알고리즘 풀이( 그룹코딩 스터디 그룹원 질문 풀이)
 //08022022

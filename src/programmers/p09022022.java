@@ -1,6 +1,6 @@
 package programmers;
 
-import java.util.*;
+//import java.util.*;
 
 //문자열 내 p와 y의 개수
 //09022022

@@ -1,6 +1,6 @@
 package programmers;
 
-import java.util.*;
+//import java.util.*;
 
 //문자열을 정수로 바꾸기
 //18022022

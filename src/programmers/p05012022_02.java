@@ -38,10 +38,10 @@ class Solution06 {
             numset.remove(num);
         }
 
-        Iterator iter = numset.iterator();
+        Iterator<Integer> iter = numset.iterator();
 
         while(iter.hasNext()) 
-        { answer += (int)iter.next(); }
+        { answer += iter.next(); }
 
         return answer;
     }

@@ -1,7 +1,6 @@
 package programmers;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 //신고 결과 받기
 //15012022
