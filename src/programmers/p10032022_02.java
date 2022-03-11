@@ -10,10 +10,11 @@ public class p10032022_02 {
 
         Solution72 s = new Solution72();
 
-       // String a = "Week 1_Course Explanation/it's fun/it's awesome_Hello World_Types of Programming Languages|Week 2_Console output_Variables_Primitive Types|Week 3_Casting_Operator_String_Console input";
-        String a = "Apple////|Orange/asdf";
+        String a = "Week 1_Course Explanation/it's fun/it's awesome_Hello World_Types of Programming Languages|Week 2_Console output_Variables_Primitive Types|Week 3_Casting_Operator_String_Console input";
+        String b = "Apple////|Orange/asdf";
 
         System.out.println(s.solution(a));
+        System.out.println(s.solution(b));
     }
 }
 
