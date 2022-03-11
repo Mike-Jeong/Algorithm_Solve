@@ -49,7 +49,7 @@ class Solution72 {
                 sb.append("\n");
 
                 for (int k = 1; k < list3.length; k++) {
-                    sb.append("        ");
+                    sb.append("        - ");
                     sb.append(list3[k]);
                     sb.append("\n");
                 }
