@@ -11,7 +11,13 @@ public class p19032022 {
 
         Solution84 s = new Solution84();
 
-        String[][] a = { { "ICN", "SFO" }, { "ICN", "ATL" }, { "SFO", "ATL" }, { "ATL", "ICN" }, { "ATL", "SFO" } };
+       // String[][] a = { { "ICN", "JFK" }, { "HND", "IAD" }, { "JFK", "HND" }};
+       // String[][] a = { { "ICN", "SFO" }, { "ICN", "ATL" }, { "SFO", "ATL" }, { "ATL", "ICN" }, { "ATL", "SFO" } };
+       // String[][] a = { { "ICN", "B" }, { "B", "ICN" }, { "ICN", "A" }, { "A", "D" }, { "D", "A" } };
+       // String[][] a = { { "ICN", "AAA" }, { "ICN", "AAA" }, { "ICN", "AAA" }, { "AAA", "ICN" }, { "AAA", "ICN" } };
+       // String[][] a = { { "ICN", "COO" }, { "ICN", "BOO" }, { "COO", "ICN" }, { "BOO", "DOO" } };
+       // String[][] a = { { "ICN", "SFO" }, { "SFO", "ICN" }, { "ICN", "SFO" }, { "SFO", "QRE" } };
+        String[][] a = { { "ICN", "BOO" }, { "ICN", "COO" }, { "COO", "DOO" }, { "DOO", "COO" }, { "BOO", "DOO" }, {"DOO", "BOO"} , {"BOO", "ICN"}, {"COO", "BOO"} };
 
         System.out.println(s.solution(a));
 
@@ -20,7 +26,7 @@ public class p19032022 {
 
 class Solution84 {
 
-    Map<String, PriorityQueue<String>> routes = new HashMap<>();
+    Map<String, LinkedList<String>> routes = new HashMap<>();
     ArrayList<String> ans = new ArrayList<>();
     int target;
 
@@ -30,51 +36,59 @@ class Solution84 {
             if (routes.containsKey(strings[0])) {
                 routes.get(strings[0]).add(strings[1]);
             } else {
-                PriorityQueue<String> priorityQueue = new PriorityQueue<>();
-                priorityQueue.add(strings[1]);
-                routes.put(strings[0], priorityQueue);
+                LinkedList<String> list = new LinkedList<>();
+                list.add(strings[1]);
+                routes.put(strings[0], list);
             }
         }
 
-        target = tickets.length + 1;
+        for (String strings : routes.keySet()) {
+            Collections.sort(routes.get(strings));
+        }
+
+        target = tickets.length;
 
         recursion("ICN", 0);
 
         String[] answer = ans.toArray(new String[ans.size()]);
+
         return answer;
     }
 
     public boolean recursion(String destination, int count) {
 
         ans.add(destination);
-        System.out.println(destination);
 
         if (!routes.containsKey(destination) || routes.get(destination).size() == 0) {
+
             if (count == target) {
                 return true;
             }
+
+            ans.remove(ans.size()-1);
             return false;
         }
 
-        PriorityQueue<String> arrivals = routes.get(destination);
-
-        String[] arrivals_c = arrivals.toArray(new String[arrivals.size()]);
+        Queue<String> arrivals = routes.get(destination);
 
         boolean ck = false;
 
-        for (String string : arrivals_c) {
-            arrivals.remove(string);
+        int s = arrivals.size();
 
-            ck = recursion(string, count + 1);
-            
-            if (ck) {
-                break;
+        for (int i = 0; i < s; i++) {
+
+            String check = arrivals.poll();
+
+            if (recursion(check, count + 1)) {
+                ck = true;
+                return true;
             }
-            
-            arrivals.add(string);
+            arrivals.add(check);
         }
 
-        ans.remove(destination);
+        if (!ck) {
+            ans.remove(ans.size()-1);
+        }
 
         return ck;
 
