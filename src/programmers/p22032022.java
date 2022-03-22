@@ -1,6 +1,6 @@
 package programmers;
 
-import java.util.*;
+//import java.util.*;
 
 //스킬트리
 //22032022
@@ -22,7 +22,31 @@ public class p22032022 {
 class Solution87 {
 
     public int solution(String skill, String[] skill_trees) {
-        int answer = -1;
+
+        int answer = 0;
+
+        for (String string : skill_trees) {
+            if (check(skill, string)) {
+                answer++;
+            }
+        }
+        
         return answer;
+    }
+
+    public boolean check(String skill, String skill_tree) {
+
+        for (int i = 1; i < skill.length(); i++) {
+            if (skill_tree.contains(String.valueOf(skill.charAt(i)))) {
+
+                String ck = skill_tree.substring(0, skill_tree.indexOf(String.valueOf(skill.charAt(i))));
+                
+                if (!ck.contains(String.valueOf(skill.charAt(i - 1)))) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 }
