@@ -20,12 +20,62 @@ public class p25032022 {
 
 class Solution90 {
 
+    boolean[][] visited;
+    Queue<int[]> queue = new LinkedList<>();
+    int[][] board;
+    int[] row_order = { 0, 1, 1 };
+    int[] col_order = { 1, 1, 0 };
+    int ans = 0;
+
     public int solution(int[][] board) {
-        int answer = 1234;
 
-        // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-        System.out.println("Hello Java");
+        this.board = board;
+        visited = new boolean[board.length][board[0].length];
 
-        return answer;
+        for (int i = 0; i < board.length - 1; i++) {
+            for (int j = 0; j < board[0].length - 1; j++) {
+                if (board[i][j] == 1 && !visited[i][j]) {
+                    queue.add(new int[] { i, j });
+                    int count = 0;
+
+                    while (!queue.isEmpty()) {
+
+                        int[] now = queue.poll();
+                        if (!visited[now[0]][now[1]]) {
+                            count++;
+                            bfs(now[0], now[1]);
+                        }
+
+                    }
+
+                    ans = Math.max(count, ans);
+                }
+            }
+        }
+        return ans;
+    }
+
+    public void bfs(int r, int c) {
+
+        visited[r][c] = true;
+
+        LinkedList<int[]> ck = new LinkedList<>();
+
+        for (int i = 0; i < 3; i++) {
+            try {
+                if (!visited[r + row_order[i]][c + col_order[i]]) {
+                    if (board[r + row_order[i]][c + col_order[i]] != 1) {
+                        return;
+                    }
+                    ck.add(new int[] { r + row_order[i], c + col_order[i] });
+                }
+
+            } catch (Exception e) {
+                return;
+            }
+        }
+
+        queue.addAll(ck);
+
     }
 }
