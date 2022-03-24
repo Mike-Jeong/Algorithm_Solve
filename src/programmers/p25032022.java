@@ -1,8 +1,8 @@
 package programmers;
 
-import java.util.*;
+//import java.util.*;
 
-//가장 큰 정사각형 찾기
+//JadenCase 문자열 만들기
 //25032022
 
 public class p25032022 {
@@ -27,7 +27,7 @@ class Solution90 {
         boolean isFirst = true;
         
         for(int i = 0; i < srr.length; i++) {
-            
+
             ans += isFirst ? srr[i].toUpperCase() : srr[i];
             isFirst = srr[i].equals(" ") ? true : false;            
         }
@@ -35,3 +35,5 @@ class Solution90 {
         return ans;
     }
 }
+//효율성에서 계속 오류나서 인터넷 퍼옴
+// 아직 이해 못함 (25.03.2022 am 06 : 39)
