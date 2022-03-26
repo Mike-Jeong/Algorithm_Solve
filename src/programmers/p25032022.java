@@ -20,7 +20,7 @@ public class p25032022 {
 class Solution90 {
 
     public String solution(String s) {
-        String ans = "";
+        StringBuilder sb = new StringBuilder();
 
         String[] srr = s.toLowerCase().split("");
         
@@ -28,12 +28,13 @@ class Solution90 {
         
         for(int i = 0; i < srr.length; i++) {
 
-            ans += isFirst ? srr[i].toUpperCase() : srr[i];
+            sb.append(isFirst ? srr[i].toUpperCase() : srr[i]);
             isFirst = srr[i].equals(" ") ? true : false;            
         }
         
-        return ans;
+        return sb.toString();
     }
 }
 //효율성에서 계속 오류나서 인터넷 퍼옴
 // 아직 이해 못함 (25.03.2022 am 06 : 39)
+// 이해 완(26.03.2022 am 10 : 23)
