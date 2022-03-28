@@ -1,6 +1,6 @@
 package programmers;
 
-//import java.util.*;
+import java.util.*;
 
 //정수 내림차순으로 배치하기
 //28032022
@@ -21,7 +21,25 @@ public class p28032022 {
 class Solution92 {
 
     public long solution(long n) {
+
+        ArrayList<Long> num = new ArrayList<>();
+
+        while (n != 0) {
+
+            long a = n % 10;
+            num.add(a);
+            n /= 10;
+            
+        }
+
+        Collections.sort(num, Collections.reverseOrder());
+
         long answer = 0;
+
+        for (int i = 0; i < num.size(); i++) {
+
+            answer = (answer * 10) + num.get(i);
+        }
         return answer;
     }
 }
