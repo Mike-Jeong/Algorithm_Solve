@@ -21,7 +21,23 @@ public class p30032022 {
 class Solution94 {
 
     public int solution(int[] arr) {
-        int answer = 0;
-        return answer;
+
+        int n = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            n = (n * arr[i]) / gcd(Math.min(n, arr[i]), Math.max(n, arr[i]));
+        }
+
+        return n;
+    }
+
+    public int gcd(int a, int b) {
+
+        int c;
+        while (b != 0) {
+            c = a%b;
+            a= b;
+            b = c;
+        }
+        return a;
     }
 }
