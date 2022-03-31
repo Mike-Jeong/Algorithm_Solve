@@ -1,6 +1,6 @@
 package programmers;
 
-import java.util.*;
+//import java.util.*;
 
 //N개의 최소공배수
 //30032022
