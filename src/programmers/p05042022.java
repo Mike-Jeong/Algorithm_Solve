@@ -44,10 +44,6 @@ class Solution98 {
         for (Integer integer : times) {
             answer += (integer * integer);    
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 0fc4d231d2fc2ad6a39eebd838d8012a5c319608
      
         return answer;
     }
