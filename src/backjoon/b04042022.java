@@ -34,6 +34,8 @@ public class b04042022 {
 				}
 			}
 		}
-	}
+	
+        sc.close();
+    }
 }
 
