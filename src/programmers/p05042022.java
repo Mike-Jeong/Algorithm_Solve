@@ -24,9 +24,27 @@ class Solution98 {
 
     public long solution(int n, int[] works) {
 
+        PriorityQueue<Integer> times = new PriorityQueue<>(Collections.reverseOrder());
 
+        for (Integer integer : works) {
+            times.add(integer);
+        }
 
+        while (n > 0) {
+            int ck = times.poll();
+            if (ck <= 0) {
+                return 0;
+            }
+            times.add(ck - 1);
+            n -= 1;    
+        }
+
+        long answer = 0;
+
+        for (Integer integer : times) {
+            answer += (integer * integer);    
+        }
      
-        return 0;
+        return answer;
     }
 }
