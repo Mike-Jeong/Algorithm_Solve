@@ -9,14 +9,13 @@ import java.util.*;
 public class b06042022 {
 
     static int[][] map;
-    static int[][] time;
+    static boolean[][] time;
     static Queue<Integer> queue0 = new LinkedList<>();
     static Queue<Integer> queue1 = new LinkedList<>();
-    static Queue<Integer> queue2 = new LinkedList<>();
     static int[] order_row = { -1, 0, 1, 0 };
     static int[] order_col = { 0, -1, 0, 1 };
 
-      public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -25,7 +24,7 @@ public class b06042022 {
         int C = Integer.parseInt(st.nextToken());
 
         map = new int[R][C];
-        time = new int[R][C];
+        time = new boolean[R][C];
 
         int[] virus_one = new int[2];
         int[] virus_two = new int[2];
@@ -47,18 +46,11 @@ public class b06042022 {
 
         queue0.add(virus_one[0]);
         queue1.add(virus_one[1]);
-        queue2.add(1);
-
-        while (!queue0.isEmpty()) {
-            bfs_a();
-        }
-
         queue0.add(virus_two[0]);
         queue1.add(virus_two[1]);
-        queue2.add(1);
 
         while (!queue0.isEmpty()) {
-            bfs_b();
+            bfs();
         }
 
         int a = 0;
@@ -77,7 +69,6 @@ public class b06042022 {
                 } else if (ck == 3) {
                     c++;
                 }
-
             }
         }
 
@@ -85,59 +76,47 @@ public class b06042022 {
 
     }
 
-    public static void bfs_a() {
+    public static void bfs() {
 
         int row = queue0.poll();
         int col = queue1.poll();
-        int c_time = queue2.poll();
+        int virus = map[row][col];
 
-        time[row][col] = c_time;
+        time[row][col] = true;
 
-        for (int i = 0; i < 4; i++) {
-            try {
-                if (map[row + order_row[i]][col + order_col[i]] == 0) {
-                    queue0.add(row + order_row[i]);
-                    queue1.add(col + order_col[i]);
-                    queue2.add(c_time + 1);
-                    map[row + order_row[i]][col + order_col[i]] = 1;
+        if (virus == 1) {
+            for (int i = 0; i < 4; i++) {
+                try {
+                    if (map[row + order_row[i]][col + order_col[i]] == 0) {
+                        queue0.add(row + order_row[i]);
+                        queue1.add(col + order_col[i]);
+                        map[row + order_row[i]][col + order_col[i]] = 1;
+                    }
+                } catch (Exception e) {
+                    continue;
                 }
-            } catch (Exception e) {
-                continue;
             }
         }
-    }
 
-    public static void bfs_b() {
+        else if (virus == 2) {
+            for (int i = 0; i < 4; i++) {
+                try {
+                    if (map[row + order_row[i]][col + order_col[i]] == 0) {
+                        queue0.add(row + order_row[i]);
+                        queue1.add(col + order_col[i]);
+                        map[row + order_row[i]][col + order_col[i]] = 2;
+                    } else if (map[row + order_row[i]][col + order_col[i]] == 1) {
 
-        int row = queue0.poll();
-        int col = queue1.poll();
-        int c_time = queue2.poll();
-
-
-
-        for (int i = 0; i < 4; i++) {
-            try {
-                if (map[row + order_row[i]][col + order_col[i]] == 1 || map[row + order_row[i]][col + order_col[i]] == 0) {
-
-                    if (time[row + order_row[i]][col + order_col[i]] >= c_time + 1) {
-                        if (time[row + order_row[i]][col + order_col[i]] == c_time + 1) {
+                        if (!time[row + order_row[i]][col + order_col[i]]) {
                             map[row + order_row[i]][col + order_col[i]] = 3;
-                        } else {
-                            queue0.add(row + order_row[i]);
-                            queue1.add(col + order_col[i]);
-                            queue2.add(c_time + 1);
-                            map[row + order_row[i]][col + order_col[i]] = 2;
                         }
                     }
+                } catch (Exception e) {
+                    continue;
                 }
-            } catch (Exception e) {
-                continue;
             }
         }
     }
 }
 
-
-/*
-해결 못함
-*/
+// 해결 08042022
