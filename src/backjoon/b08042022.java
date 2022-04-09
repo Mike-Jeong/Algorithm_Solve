@@ -2,6 +2,9 @@ package backjoon;
 
 import java.util.*;
 
+//골드바흐의 추측
+//08042022
+
 public class b08042022 {
     public static void main(String[] args) {
 
