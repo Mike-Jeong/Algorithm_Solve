@@ -2,7 +2,7 @@ package programmers;
 
 //import java.util.*;
 
-//2 x n 타일링
+//피보나치 수
 //11042022
 
 public class p11042022 {
@@ -20,30 +20,24 @@ public class p11042022 {
 
 class Solution102 {
 
-    int target;
-    int count = 0;
+    int[] fibo = new int[100001];
 
     public int solution(int n) {
 
-        target = n;
-        recursion(0);
+        fibo[0] = 0;
+        fibo[1] = 1;
 
-        return count;
-    }
-
-    public void recursion(int sum) {
-
-        if (sum >= target) {
-            if (sum == target) {
-                count++;
-            }
-
-            return;
+        for (int i = 2; i <= n; i++) {
+            find_fibo(i);
         }
 
-        recursion(sum + 1);
+        int answer = fibo[n];
+        return answer;
+    }
 
-        recursion(sum + 2);
+    public void find_fibo(int n) {
+
+        fibo[n] = ((fibo[n - 1] + fibo[n - 2]) % 1234567);
 
     }
 }
