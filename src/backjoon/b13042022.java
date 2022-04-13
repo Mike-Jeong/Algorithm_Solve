@@ -6,22 +6,46 @@ import java.util.*;
 //13042022
 
 public class b13042022 {
-    public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+      static int find_0;
+      static int find_1;
 
-        int count = sc.nextInt();
+      public static void main(String[] args) {
 
-        while (count > 0) {
+            Scanner sc = new Scanner(System.in);
 
-            int num = sc.nextInt();
-           
+            int count = sc.nextInt();
 
-            count--;
-        }
+            while (count > 0) {
 
-        sc.close();
-    }
+                  int num = sc.nextInt();
+                  find_0 = 0;
+                  find_1 = 0;
 
-   
+                  recusrion(num);
+
+                  System.out.println(find_0 + " " + find_1);
+
+                  count--;
+            }
+
+            sc.close();
+      }
+
+      public static void recusrion(int num) {
+            if (num == 0 || num == 1) {
+
+                  if (num == 0) {
+                        find_0++;
+                  } else if (num == 1) {
+                        find_1++;
+                  }
+
+                  return;
+            }
+
+            recusrion(num - 1);
+            recusrion(num - 2);
+      }
+
 }
