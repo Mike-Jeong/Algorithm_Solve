@@ -11,9 +11,9 @@ public class p14042022 {
 
         Solution103 s = new Solution103();
 
-        int a = 4;
-        int b = 1;
-        int c = 3;
+        int a = 512;
+        int b = 511;
+        int c = 511;
 
         System.out.println(s.solution(a, b, c));
 
@@ -45,15 +45,22 @@ class Solution103 {
     public boolean fill_board(int n, int x, int y) {
 
         if (n == 2) {
-            for (int i = 0; i < 4; i++) {
+            
+            if ((target_r <= x + 1 && target_r > x - 1) && (target_c < y + 1 && target_c >= y - 1)) {
+         
+                for (int i = 0; i < 4; i++) {
 
-                board[x + row_order[i]][y + col_order[i]] = count;
-
-                if ((x + row_order[i]) == target_r && (y + col_order[i]) == target_c) {
-                    return true;
+                    board[x + row_order[i]][y + col_order[i]] = count;
+    
+                    if ((x + row_order[i]) == target_r && (y + col_order[i]) == target_c) {
+                        return true;
+                    }
+                    count++;
                 }
-                count++;
+                
             }
+           
+            count += 4;
             return false;
 
         } else {
