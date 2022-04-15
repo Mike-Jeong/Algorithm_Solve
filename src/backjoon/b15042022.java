@@ -109,10 +109,7 @@ public class b15042022 {
                   st = new StringTokenizer(br.readLine());
 
                   int num_node = Integer.parseInt(st.nextToken());
-<<<<<<< HEAD
                   no = new ArrayList[num_node + 1];
-=======
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
                   times = new int[num_node + 1];
 
                   int rules = Integer.parseInt(st.nextToken());
@@ -120,10 +117,7 @@ public class b15042022 {
                   st = new StringTokenizer(br.readLine());
 
                   for (int j = 1; j <= num_node; j++) {
-<<<<<<< HEAD
                         no[j] = new ArrayList<>();
-=======
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
                         times[j] = Integer.parseInt(st.nextToken());
                   }
 
@@ -133,15 +127,7 @@ public class b15042022 {
                         int first_node = Integer.parseInt(st.nextToken());
                         int second_node = Integer.parseInt(st.nextToken());
 
-<<<<<<< HEAD
                         no[second_node].add(first_node);
-=======
-                        if (!nodes.containsKey(second_node)) {
-                              nodes.put(second_node, new ArrayList<>());
-                        }
-
-                        nodes.get(second_node).add(first_node);
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
 
                   }
 
