@@ -10,10 +10,6 @@ public class b15042022 {
 
       static Map<Integer, ArrayList<Integer>> nodes = new HashMap<>();
       static int[] times;
-<<<<<<< HEAD
-=======
-      static ArrayList<Integer>[] no;
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
       static int ans = 0;
 
       public static void main(String[] args) throws IOException {
@@ -28,10 +24,6 @@ public class b15042022 {
                   st = new StringTokenizer(br.readLine());
 
                   int num_node = Integer.parseInt(st.nextToken());
-<<<<<<< HEAD
-=======
-                  no = new ArrayList[num_node + 1];
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
                   times = new int[num_node + 1];
 
                   int rules = Integer.parseInt(st.nextToken());
@@ -39,10 +31,6 @@ public class b15042022 {
                   st = new StringTokenizer(br.readLine());
 
                   for (int j = 1; j <= num_node; j++) {
-<<<<<<< HEAD
-=======
-                        no[j] = new ArrayList<>();
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
                         times[j] = Integer.parseInt(st.nextToken());
                   }
 
@@ -52,15 +40,11 @@ public class b15042022 {
                         int first_node = Integer.parseInt(st.nextToken());
                         int second_node = Integer.parseInt(st.nextToken());
 
-<<<<<<< HEAD
                         if (!nodes.containsKey(second_node)) {
                               nodes.put(second_node, new ArrayList<>());
                         }
 
                         nodes.get(second_node).add(first_node);
-=======
-                        no[second_node].add(first_node);
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
 
                   }
 
@@ -78,16 +62,10 @@ public class b15042022 {
 
       public static void recusrion(int num, int count) {
 
-<<<<<<< HEAD
             ArrayList<Integer> current_node = nodes.get(num);
             count += times[num];
 
             if (current_node == null) {
-=======
-            count += times[num];
-
-            if (no[num].size() == 0) {
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
 
                   if (count > ans) {
                         ans = Math.max(ans, count);
@@ -96,23 +74,12 @@ public class b15042022 {
                   return;
             }
 
-<<<<<<< HEAD
             for (int i = 0; i < current_node.size(); i++) {
                   recusrion(current_node.get(i), count);
             }
       }
 
 }// 첫번째 답
-=======
-            for (int i = 0; i < no[num].size(); i++) {
-
-                  recusrion(no[num].get(i), count);
-            }
-      }
-
-}
-
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
 
 // 답은 다 맞지만, 시간 초과
 // 위상정렬 공부할것
@@ -121,7 +88,6 @@ public class b15042022 {
 import java.io.*;
 import java.util.*;
 
-<<<<<<< HEAD
 //ACM Craft
 //15042022
 
@@ -129,13 +95,6 @@ public class b15042022 {
 
       static int[] times;
       static ArrayList<Integer>[] no;
-=======
-
-public class Main {
-
-      static Map<Integer, ArrayList<Integer>> nodes = new HashMap<>();
-      static int[] times;
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
       static int ans = 0;
 
       public static void main(String[] args) throws IOException {
@@ -200,16 +159,9 @@ public class Main {
 
       public static void recusrion(int num, int count) {
 
-<<<<<<< HEAD
             count += times[num];
 
             if (no[num].size() == 0) {
-=======
-            ArrayList<Integer> current_node = nodes.get(num);
-            count += times[num];
-
-            if (current_node == null) {
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
 
                   if (count > ans) {
                         ans = Math.max(ans, count);
@@ -218,7 +170,6 @@ public class Main {
                   return;
             }
 
-<<<<<<< HEAD
             for (int i = 0; i < no[num].size(); i++) {
 
                   recusrion(no[num].get(i), count);
@@ -292,13 +243,3 @@ public class Main {
 }
 
 */
-=======
-            for (int i = 0; i < current_node.size(); i++) {
-                  recusrion(current_node.get(i), count);
-            }
-      }
-
-}
-
-*/ //내가 쓴 답
->>>>>>> b5313a0fc214d9d5b7d621da531a6caedca51a62
