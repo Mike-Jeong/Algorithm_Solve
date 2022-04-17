@@ -1,6 +1,6 @@
 package backjoon;
 
-import java.io.*;
+//import java.io.*;
 import java.util.*;
 
 //Fly me to the Alpha Centauri
@@ -12,16 +12,16 @@ public class b17042022 {
     
 		Scanner in = new Scanner(System.in);
  
-		int T = in.nextInt();	// 테스트 케이스 
+		int T = in.nextInt();
 		
 		for(int i = 0; i < T; i++) {
         
 			int X = in.nextInt();
 			int Y = in.nextInt();
 			
-			int distance = Y - X;	// 거리
+			int distance = Y - X;	
 			
-			int max = (int)Math.sqrt(distance);	// 소수점 버림
+			int max = (int)Math.sqrt(distance);
             
 			if(max == Math.sqrt(distance)) {
 				System.out.println(max * 2 - 1);
@@ -34,5 +34,7 @@ public class b17042022 {
 			}
 			
 		}
+
+            in.close();
 	}
 }
