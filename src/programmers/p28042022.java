@@ -1,6 +1,6 @@
 package programmers;
 
-import java.util.*;
+//import java.util.*;
 
 public class p28042022 {
 
@@ -19,8 +19,25 @@ public class p28042022 {
 
 class Solution105 {
 
-    public int solution(int x1, int y1, int x2, int y2) {
-        int answer = 0;
+    public int solution(int delay, int N) {
+
+        int[] sum = new int[100];
+        int[] total = new int[100];
+
+        sum[0] = 1;
+        total[0] = 1;
+        sum[1] = 2;
+        total[1] = 3;
+        sum[1 + 1 + delay] += 2;
+
+        for (int i = 2; i <= N; i++) {
+            sum[i] += (sum[i - 1] / 2) * 2;
+            sum[i + (delay + 1)] += sum[i] / 2 * 2;
+    
+            total[i] = total[i - 1] + sum[i];
+        }
+
+        int answer = total[N];
         return answer;
     }
 }
