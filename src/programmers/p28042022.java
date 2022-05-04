@@ -2,6 +2,9 @@ package programmers;
 
 //import java.util.*;
 
+//아메바 분열
+//28042022
+
 public class p28042022 {
 
     public static void main(String[] args) throws Exception {

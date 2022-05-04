@@ -2,6 +2,9 @@ package programmers;
 
 //import java.util.*;
 
+//디코딩
+//21042022
+
 public class p21042022 {
 
     public static void main(String[] args) throws Exception {
