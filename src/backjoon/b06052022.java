@@ -12,8 +12,7 @@ public class b06052022 {
 
         boolean[] num = new boolean[1000001];
 
-        num[0] = true;
-        num[1] = true;
+        num[0] = num[1] = true;
 
         for (int i = 2; i <= Math.sqrt(num.length - 1); i++) {
             for (int j = i + i; j <= num.length - 1; j += i) {
