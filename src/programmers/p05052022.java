@@ -11,49 +11,39 @@ public class p05052022 {
 
         Solution108 s = new Solution108();
 
-        int[][] a = {{1, 8, 4}, {2, 4, 10}, {3, 5, 6}, {10, 12, 6}};
-        int[] b = {2, 4, 2, 1, 3};
+        String[] words = {"hell", "hell", "good", "goose", "children", "card", "teachable"};
+        String[] queries = {"hell*", "goo*", "*able", "qua*"};
 
-        System.out.println(s.solution(a));
+        System.out.println(s.solution(words,queries));
 
     }
 }
 
 class Solution108 {
 
-    public String[][] solution(String[] words, String[] queries) {
+    public int[] solution(String[] words, String[] queries) {
 
-        String[][] answer = new String[queries.length][];
+        int[] answer = new int[queries.length];
 
-        int index = 0;
-        for (String string : queries) {
+        for (int i = 0; i < answer.length; i++) {
+            int count = 0;
+            int star = queries[i].indexOf("*");
+            String word = queries[i].replace("*", "");
 
-            String word = string.replace("?", "");
-            int len =  string.length();
-
-            ArrayList<String> ans = new ArrayList<>();
-
-            for (String str : words) {
-                if (len == 1 && str.length() == 1) {
-                    ans.add(str);
-                }
-
-                else {
-                    if (str.contains(word) && str.length() == len) {
-                        ans.add(str);
+            for (String tar : words) {
+                if (star != 0) {
+                    if (tar.startsWith(word)) {
+                        count++;
+                    }
+                } else {
+                    if (tar.endsWith(word)) {
+                        count++;
                     }
                 }
             }
 
-            answer[index] = new String[ans.size()];
-
-            for (int i = 0; i < ans.size(); i++) {
-                answer[index][i] = ans.get(i);
-            }
-
-            index++;
+            answer[i] = count;
         }
-        
         return answer;
     }
 }
