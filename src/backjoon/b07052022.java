@@ -10,7 +10,7 @@ public class b07052022 {
 
     static boolean[] visited;
     static int count = -1;
-    static Map<Integer, Set<Integer>> nodes = new HashMap<>();
+    static Map<Integer, ArrayList<Integer>> nodes = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
 
@@ -31,19 +31,22 @@ public class b07052022 {
             int city_b = Integer.valueOf(st.nextToken());
 
             if (!nodes.containsKey(city_a)) {
-                Set<Integer> edges = new HashSet<>();
+                ArrayList<Integer> edges = new ArrayList<>();
                 nodes.put(city_a, edges);
             }
 
             nodes.get(city_a).add(city_b);
 
             if (!nodes.containsKey(city_b)) {
-                Set<Integer> edges = new HashSet<>();
+                ArrayList<Integer> edges = new ArrayList<>();
                 nodes.put(city_b, edges);
             }
 
             nodes.get(city_b).add(city_a);
         }
+
+        dfs(1);
+        System.out.println(count);
 
     }
 
@@ -52,14 +55,18 @@ public class b07052022 {
         visited[city] = true;
         count++;
 
-        Set<Integer> current = nodes.get(city);
+        if (nodes.containsKey(city)) {
 
-        for (Integer integer : current) {
-            if (!visited[integer]) {
-                dfs(city);
+            ArrayList<Integer> current = nodes.get(city);
+
+            if (current.size() > 0) {
+                for (int i = 0; i < current.size(); i++) {
+                    if (!visited[current.get(i)]) {
+                        dfs(current.get(i));
+                    }
+                }
             }
         }
-
     }
 
 }
