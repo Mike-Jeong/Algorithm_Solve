@@ -1,6 +1,6 @@
 package backjoon;
 
-import java.io.*;
+//import java.io.*;
 import java.util.*;
 
 //계단 오르기
