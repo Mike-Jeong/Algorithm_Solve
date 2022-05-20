@@ -8,10 +8,6 @@ import java.util.*;
 
 public class b20052022 {
 
-	public static int N, M;
-	public static int[] arr;
-	static StringBuilder sb = new StringBuilder();
-
 	public static void main(String[] args) throws IOException {
 
 		Scanner sc = new Scanner(System.in);
@@ -20,16 +16,21 @@ public class b20052022 {
 
 		int[] nums = new int[num + 1];
 
-		nums[0] = 0;
-		nums[1] = 1;
-		nums[2] = 2;
+		if (num == 1 || num == 2 || num == 0) {
+			System.out.println(num);
 
-		for (int i = 3; i < nums.length; i++) {
-			nums[i] = (nums[i - 1] + nums[i - 2]) / 15746;
+		} else {
+
+			nums[0] = 0;
+			nums[1] = 1;
+			nums[2] = 2;
+	
+			for (int i = 3; i < nums.length; i++) {
+				nums[i] = (nums[i - 1] + nums[i - 2]) % 15746;
+			}
+	
+			System.out.println(nums[num]);
 		}
-
-		System.out.println(nums[num]);
-
 		sc.close();
 
 	}
