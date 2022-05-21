@@ -14,7 +14,26 @@ public class b21052022 {
 
 		String pipes = sc.nextLine();
 
-	
+		Stack<Integer> st = new Stack<>();
+
+		int ans = 0;
+
+		for (int i = 0; i < pipes.length(); i++) {
+			if (pipes.charAt(i) == '(') {
+				st.push(1);
+			} else {
+				if (pipes.charAt(i - 1) == '(') {
+					st.pop();
+					ans += st.size();
+				} else {
+					st.pop();
+					ans++;
+				}
+			}
+		}
+
+		System.out.println(ans);
+
 		sc.close();
 
 	}
