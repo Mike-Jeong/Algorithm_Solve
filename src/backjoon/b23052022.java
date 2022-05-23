@@ -28,6 +28,10 @@ public class b23052022 {
             round++;
         }
 
+        if (round > num) {
+            System.out.println(-1);
+        }
+
         System.out.println(round);
 
     }
