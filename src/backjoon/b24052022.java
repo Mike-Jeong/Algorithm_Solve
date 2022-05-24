@@ -3,7 +3,7 @@ package backjoon;
 import java.io.*;
 import java.util.*;
 
-//치킨 TOP N
+//색종이 만들기
 //24052022
 
 public class b24052022 {
@@ -31,15 +31,52 @@ public class b24052022 {
             }
         }
 
+        recursion(0, 0, num);
+
         System.out.println(count0);
         System.out.println(count1);
 
     }
 
-    static void recursion() {
+    static void recursion(int x, int y, int length) {
 
-        if (condition) {
-            
+        if (length == 1) {
+
+            if (board[x][y] == 1) {
+                count1++;
+            } else {
+                count0++;
+            }
+            return;
+        }
+
+        int target = board[x][y];
+        boolean eq = true;
+
+        loop:
+
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length; j++) {
+                if (board[x + i][y + j] != target) {
+                    eq = false;
+                    break loop;
+                }
+            }
+        }
+
+        if (eq) {
+            if (target == 1) {
+                count1++;
+            } else {
+                count0++;
+            }
+        } else {
+
+            recursion(x, y, length / 2);
+            recursion(x, y + (length / 2), length / 2);
+            recursion(x + (length / 2), y, length / 2);
+            recursion(x + (length / 2), y + (length / 2), length / 2);
+
         }
 
     }
