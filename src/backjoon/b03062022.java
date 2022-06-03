@@ -1,6 +1,7 @@
 package backjoon;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
 
 //조합
@@ -16,23 +17,19 @@ public class b03062022 {
     int n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
 
-    long nf = 1;
-    long mf = 1;
+    BigInteger nf = new BigInteger("1");
+    BigInteger mf = new BigInteger("1");
 
     for (int i = m; i > 0; i--) {
 
-      nf *= n;
-      mf *= m;
-
+      nf = nf.multiply(BigInteger.valueOf(n));
+      mf = mf.multiply(BigInteger.valueOf(m));
+      
       n -= 1;
       m -= 1;
-
     }
 
-    System.out.println(nf);
-    System.out.println(mf);
-
-    System.out.println(nf/mf);
+    System.out.println(nf.divide(mf));
 		
 	}
  
