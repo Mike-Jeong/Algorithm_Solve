@@ -3,7 +3,7 @@ package backjoon;
 import java.io.*;
 import java.util.*;
 
-//조합
+//Generations of Tribbles
 //04062022
 
 public class b04062022 {
