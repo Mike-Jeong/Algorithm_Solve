@@ -3,7 +3,7 @@ package backjoon;
 import java.io.*;
 import java.util.*;
 
-//
+//점프 점프
 //17062022
 
 public class b17062022 {
