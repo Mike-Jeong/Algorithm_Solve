@@ -33,28 +33,32 @@ public class b04072022 {
 		st = new StringTokenizer(br.readLine());
 
 		int max = Integer.parseInt(st.nextToken());
-
+		System.out.println("max = " + max);
 		while (left <= right) {
-
+			System.out.println("------------------------------------------");
+			System.out.println("left = " + left);
+			System.out.println("right = " + right);
 			int mid = (left + right) / 2;
-
+			System.out.println("mid = " + mid);
 			int sum = 0;
 
 			for (int i = 0; i < request.length; i++) {
 				if (request[i] > mid) {
 					sum += mid;
+					System.out.println("sum += " + mid);
 				} else {
 					sum += request[i];
+					System.out.println("sum += " + request[i]);
 				}
 			}
-
+			System.out.println("sum = " + sum);
 			if (sum <= max) {
 				left = mid + 1;
 			} else{
 				right = mid - 1;
 			}
 		}
-
+		System.out.println("------------------------------------------");
 		System.out.println(right);
 	}
 }
