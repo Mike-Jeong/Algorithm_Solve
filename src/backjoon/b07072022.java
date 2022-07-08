@@ -60,13 +60,15 @@ public class b07072022 {
             }
 
             if (map.containsKey(i)) {
-
                 Map<Integer, Integer> ck = map.get(i);
-
                 for (int j : ck.keySet()) {
-                    dp[j] = ck.get(j) + dp[i];
+                    int shortCut = ck.get(j) + dp[i];
+                    if (dp[j] != -1) {
+                        dp[j] = Math.min(shortCut, dp[j]);
+                    } else {
+                        dp[j] = shortCut;
+                    }
                 }
-
             }
             System.out.println("------------------");
             System.out.println(dp[i]);
