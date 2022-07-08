@@ -57,11 +57,11 @@ public class b08072022 {
                     if (dp[next.end] != -1) {
                         if (dp[next.end] > (dp[current.end] + next.weight)) {
                             dp[next.end] = dp[current.end] + next.weight;
-                            priorityQueue.add(next);
+                            priorityQueue.add(new Node3(next.end, dp[current.end] + next.weight));
                         }
                     } else {
                         dp[next.end] = dp[current.end] + next.weight;
-                        priorityQueue.add(next);
+                        priorityQueue.add(new Node3(next.end, dp[current.end] + next.weight));
                     }
                 }
             }
