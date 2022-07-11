@@ -1,6 +1,8 @@
 package programmers;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 //?
 //19052022
@@ -23,78 +25,45 @@ public class p19052022 {
 class Solution110 {
 
     public int solution(int[] amount, int[] value, int[] stomach) {
+        List<Meat> meats = IntStream.range(0, amount.length)
+                .boxed()
+                .map(i -> new Meat(value[i], amount[i]))
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
 
-        PriorityQueue<int[]> amount_value = new PriorityQueue<>(new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                if (o1[1] < o2[1]) {
-                    return 1;
-                } else if (o1[1] > o2[1]) {
-                    return -1;
-                } else {
-                    return o1[0] > o2[0] ? 1 : -1;
-                }
+        int bestMeatConsumption =
+                Math.min(meats.get(0).amount / stomach.length,
+                        Arrays.stream(stomach).min().getAsInt()) * stomach.length;
+        int totalStomach = Arrays.stream(stomach).sum() - bestMeatConsumption;
+        int result = bestMeatConsumption * meats.get(0).value;
+
+        for (int i = 1; i < meats.size(); i++) {
+            int v = meats.get(i).value;
+            int a = meats.get(i).amount;
+            int consumption = Math.min(totalStomach, a);
+            result += v * consumption;
+            totalStomach -= consumption;
+            if (totalStomach == 0) {
+                break;
             }
-        });
-
-        for (int i = 0; i < amount.length; i++) {
-            amount_value.add(new int[] { amount[i], value[i] });
         }
 
-        int answer = 0;
+        return result;
+    }
+}
 
-        int count = 0;
-        int peo = stomach.length;
+class Meat implements Comparable<Meat> {
+    int value;
+    int amount;
 
-        while (!amount_value.isEmpty()) {
+    public Meat(int value, int amount) {
+        this.value = value;
+        this.amount = amount;
+    }
 
-            int[] now = amount_value.poll();
-
-            if (now[0] < peo) {
-                continue;
-
-            }
-
-            if (count == 0) {
-                
-                int cal = now[0] / peo;
-                if (cal > 0) {
-                    answer += (now[1] * cal * peo);
-                    count++;
-                }
-                System.out.println(answer);
-
-            } else {
-
-                boolean con = true;
-                while (con) {
-                    
-                    if (now[0] >= peo) {
-                        for (int i = 0; i < stomach.length; i++) {
-                            if(stomach[i] != 0){
-                                stomach[i]--;
-                                now[0]--;
-                                answer += now[1];
-                            }
-                        
-                            if (stomach[i] == 0) {
-                                peo--;
-                            }
-
-                            if (now[0] == 0) {
-                                con  = false;
-                            }
-    
-                            
-                        }
-                    } else break;
-                    
-                }
-            }
-
-        }
-
-        return answer;
+    @Override
+    public int compareTo(Meat o) {
+        return this.value - o.value;
     }
 }
 
