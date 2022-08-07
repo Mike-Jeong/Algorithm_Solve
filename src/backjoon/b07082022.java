@@ -13,6 +13,40 @@ public class b07082022 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
+        int numTest = Integer.parseInt(st.nextToken());
+
+        for (int i = 0; i < numTest; i++) {
+
+            st = new StringTokenizer(br.readLine());
+
+            int numCoin = Integer.parseInt(st.nextToken());
+
+            int[] coins = new int[numCoin];
+
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < numCoin; j++) {
+
+                int coinValue = Integer.parseInt(st.nextToken());
+                coins[j] = coinValue;
+
+            }
+
+            st = new StringTokenizer(br.readLine());
+            int target = Integer.parseInt(st.nextToken());
+
+            int[] dp = new int[target + 1];
+            dp[0] = 1;
+
+            for (int j = 0; j < coins.length; j++) {
+                for (int j2 = coins[j]; j2 <= target; j2++) {
+                    dp[j2] = dp[j2] + dp[j2 - coins[j]];
+                }
+            }
+
+            System.out.println(dp[target]);
+            
+        }
+
         
     }
 }
