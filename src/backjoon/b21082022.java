@@ -3,7 +3,7 @@ package backjoon;
 import java.io.*;
 import java.util.*;
 
-//
+//연속합 2
 //21082022
 
 public class b21082022 {
