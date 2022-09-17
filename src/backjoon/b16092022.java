@@ -1,7 +1,7 @@
 package backjoon;
 
 import java.io.*;
-import java.util.*;
+//import java.util.*;
 
 //포도주 시식
 //16092022
@@ -35,7 +35,7 @@ public class b16092022 {
 				dp[2] = Math.max(dp[1], Math.max(wines[0] + wines[2], wines[1] + wines[2]));
 				continue;
 			}
-			
+
 			dp[i] = Math.max(dp[i - 1], Math.max(dp[i - 2] + wines[i], dp[i - 3] + wines[i - 1] + wines[i]));
 		}
 
