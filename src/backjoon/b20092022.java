@@ -34,17 +34,17 @@ public class b20092022 {
 				list.add(nums[i]);
 				ans[i] = list.size() - 1;
 			} else {
-				int left = 0;
+				int left = 1;
 				int right = list.size() - 1;
 
-				while (left < right) {
+				while (left <= right) {
 
 					int mid = (left + right) / 2;
 
 					if (list.get(mid) > nums[i]) {
 						left = mid + 1;
 					} else {
-						right = mid;
+						right = mid - 1;
 					}
 				}
 				ans[i] = left;
