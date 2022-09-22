@@ -21,30 +21,22 @@ public class b21092022 {
 		if (k == (n * n)) {
 			System.out.println(n * n);
 		} else {
-			int left = 1;
-			int right = k;
+			long left = 1;
+			long right = k;
 
 			while (left < right) {
 
-				int mid = (left + right) / 2;
-				int count = 0;
+				long mid = (left + right) / 2;
+				long count = 0;
 
 				for (int i = 1; i <= n; i++) {
-					for (int j = 1; j <= n; j++) {
-						if (i * j <= mid) {
-							count++;
-						} else {
-							break;
-						}
-					}
+					count += Math.min(mid / i, n);
 				}
 
-				System.out.println(count);
-
-				if (count < k) {
-					left = mid + 1;
-				} else {
+				if (k <= count) {
 					right = mid;
+				} else {
+					left = mid + 1;
 				}
 			}
 
