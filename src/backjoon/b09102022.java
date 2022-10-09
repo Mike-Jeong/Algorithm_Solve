@@ -3,7 +3,7 @@ package backjoon;
 import java.io.*;
 import java.util.*;
 
-//2의 멱수의 합
+//AC
 //09102022
 
 public class b09102022 {
@@ -44,15 +44,16 @@ public class b09102022 {
 			if (order.charAt(i) == 'R') {
 				direction = !direction;
 			} else {
-				try {
-					if (direction) {
-						list.pollFirst();
-					} else {
-						list.pollLast();
+				if (direction) {
+					if (list.pollFirst() == null) {
+						sb.append("error\n");
+						return;
 					}
-				} catch (Exception e) {
-					sb.append("error\n");
-					return;
+				} else {
+					if (list.pollLast() == null) {
+						sb.append("error\n");
+						return;
+					}
 				}
 			}
 		}
@@ -65,9 +66,11 @@ public class b09102022 {
 				sb.append(list.pollLast());
 			}
 
-			sb.append(list.isEmpty() ? "]" : ",");
+			if (!list.isEmpty()) {
+				sb.append(",");
+			}
 		}
-
+		sb.append("]");
 		sb.append("\n");
 	}
 }
