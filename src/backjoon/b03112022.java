@@ -28,7 +28,7 @@ public class b03112022 {
 
 		Arrays.sort(points);
 
-		int left = 0;
+		int left = 0; // / by error 로 인해 1로 변경해야함!
 		int right = l;
 
 		while (left < right) {
