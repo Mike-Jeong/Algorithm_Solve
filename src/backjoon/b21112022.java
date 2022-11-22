@@ -14,7 +14,7 @@ public class b21112022 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
 		int n = Integer.parseInt(st.nextToken());
-		
+
 		String[] strings = new String[n];
 
 		for (int i = 0; i < n; i++) {
@@ -23,7 +23,6 @@ public class b21112022 {
 		}
 
 		Arrays.sort(strings);
-
 
 		for (int i = 0; i < n; i++) {
 			System.out.println(strings[i].replaceAll("c", "k").replaceAll("n~", "ng"));
