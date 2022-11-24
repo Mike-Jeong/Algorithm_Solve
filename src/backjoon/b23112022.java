@@ -3,7 +3,7 @@ package backjoon;
 import java.io.*;
 import java.util.*;
 
-//숫자고르기
+//미로
 //23112022
 
 public class b23112022 {
@@ -53,7 +53,7 @@ public class b23112022 {
 		if (row == endpoints.peek()[0] && col == endpoints.peek()[1]) {
             
             map[row][col] = '.';
-			
+
 			StringBuilder sb = new StringBuilder();
 			
 			for (int i = 0; i < map.length; i++) {
