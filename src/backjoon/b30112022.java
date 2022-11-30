@@ -18,22 +18,27 @@ public class b30112022 {
 		st = new StringTokenizer(br.readLine());
 		int m = Integer.parseInt(st.nextToken());
 
-		String str = br.readLine();
+		char[] s = br.readLine().toCharArray();
 
-		int answer = 0;
 		int[] dp = new int[m];
 
-		Arrays.fill(dp, 0);
+		int ans = 0;
+		for (int i = 1; i < m - 1; i++) {
 
-		for (int i = 2; i < m; i++) {
-			String temp = str.substring(i - 2, i + 1);
-			if (temp.equals("IOI")) {
-				dp[i] = dp[i - 2] + 1;
+			if (s[i - 1] == 'I' && s[i] == 'O' && s[i + 1] == 'I') {
+
+				if (i == 1) {
+					dp[1] = 1;
+				} else {
+					dp[i] = dp[i - 2] + 1;
+				}
 			}
+
 			if (dp[i] >= n) {
-				answer++;
+				ans++;
 			}
 		}
-		System.out.println(answer);
+
+		System.out.println(ans);
 	}
 }
