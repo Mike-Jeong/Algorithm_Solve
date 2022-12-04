@@ -3,7 +3,7 @@ package backjoon;
 import java.io.*;
 import java.util.*;
 
-//최대공약수
+//별 찍기 - 10
 //03122022
 
 public class b03122022 {
