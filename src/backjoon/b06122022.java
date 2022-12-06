@@ -3,8 +3,8 @@ package backjoon;
 import java.io.*;
 import java.util.*;
 
-//최소 스패닝 트리
-//05122022
+//네트워크 연결
+//06122022
 
 public class b06122022 {
 
