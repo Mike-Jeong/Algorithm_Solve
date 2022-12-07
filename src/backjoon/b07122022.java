@@ -15,7 +15,7 @@ public class b07122022 {
 
 		int n = Integer.parseInt(st.nextToken());
 
-		int[] liquid = new int[n];
+		long[] liquid = new long[n];
 		
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; i++) {
@@ -24,7 +24,7 @@ public class b07122022 {
 
 		Arrays.sort(liquid);
 
-		int[] ans = new int[3];
+		long[] ans = new long[3];
 		long max = Long.MAX_VALUE;
 
 		loop:    
