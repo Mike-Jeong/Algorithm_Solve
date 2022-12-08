@@ -15,8 +15,8 @@ public class b07122022 {
 
 		int n = Integer.parseInt(st.nextToken());
 
-		long[] liquid = new long[n];
-		
+		int[] liquid = new int[n];
+
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; i++) {
 			liquid[i] = Integer.parseInt(st.nextToken());
@@ -24,17 +24,18 @@ public class b07122022 {
 
 		Arrays.sort(liquid);
 
-		long[] ans = new long[3];
+		int[] ans = new int[3];
 		long max = Long.MAX_VALUE;
 
-		loop:    
+		loop: 
 		for (int i = 0; i < n; i++) {
+
 			int left = i + 1;
-			int right = n- 1;
+			int right = n - 1;
 
 			while (left < right) {
-				
-				long sum = liquid[left] + liquid[right] + liquid[i];
+
+				long sum = (long) liquid[left] + (long) liquid[right] + (long) liquid[i];
 				long diff = Math.abs(sum);
 
 				if (sum == 0) {
@@ -62,5 +63,3 @@ public class b07122022 {
 		System.out.println(ans[0] + " " + ans[1] + " " + ans[2]);
 	}
 }
-
-
