@@ -62,18 +62,36 @@ public class b10122022 {
 		Collections.sort(list1);
 		Collections.sort(list2, Collections.reverseOrder());
 
-		int count = 0;
-		for (int i = 0; i < list1.size(); i++) {
-			
-			for (int j = 0; j < list2.size(); j++) {
+		long count = 0;
+		int index1 = 0;
+		int index2 = 0;
 
-				if (list1.get(i) + list2.get(j) == t) {
-					count++;
+		while (index1 < list1.size() && index2 < list2.size()) {
+
+			int a = list1.get(index1);
+			int b = list2.get(index2);
+			int sum = a + b;
+
+			if (sum == t) {
+				long aCount = 0;
+				long bCount = 0;
+
+				while (index1 < list1.size() && list1.get(index1) == a) {
+					aCount++;
+					index1++;
 				}
 
-				if (list1.get(i) + list2.get(j) < t) {
-					break;
+				while (index2 < list2.size() && list2.get(index2) == b) {
+					bCount++;
+					index2++;
 				}
+
+				count += (aCount * bCount);
+
+			} else if (sum < t) {
+				index1++;
+			} else if (sum > t) {
+				index2++;
 			}
 		}
 
