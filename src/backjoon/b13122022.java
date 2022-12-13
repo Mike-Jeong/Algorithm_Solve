@@ -34,19 +34,17 @@ public class b13122022 {
 
 		});
 
-		int max = 1;
 		List<Integer> list = new ArrayList<>();
 		list.add(cable[1][1]);
 		dp[1] = 1;
 
 		for (int i = 2; i <= n; i++) {
 			
-			if (cable[i][1] == cable[i - 1][1]) {
-				dp[i] = dp[i - 1];
-				continue;
-			} else if (cable[i][1] > cable[i - 1][1]) {
-				dp[i] = dp[i - 1] + 1;
+			if (list.get(list.size() - 1) == cable[i][1]) {
+				dp[i] = list.size();
+			} else if (list.get(list.size() - 1) < cable[i][1]) {
 				list.add(cable[i][1]);
+				dp[i] = list.size();
 			} else {
 				int left = 0;
 				int right = list.size() - 1;
@@ -64,31 +62,30 @@ public class b13122022 {
 				dp[i] = right + 1;
 				list.set(right, cable[i][1]);
 			}
-
-			max = Math.max(max, dp[i]);
 		}
 
 		StringBuilder sb = new StringBuilder();
 
-		sb.append(n - max).append("\n");
+		sb.append(n - list.size()).append("\n");
 
-		int ck = max;
+		int ck = list.size();
+		int index = n;
 		while (ck > 0) {
-			for (int i = dp.length - 1; i > 0; i--) {
-				if (dp[i] == ck) {
-					check[i] = true;
-					ck--;
-					break;
-				}
+			if (dp[index] == ck) {
+				check[index] = true;
+				ck--;
 			}
+			index--;
 		}
 
+		int count = 0;
 		for (int i = 1; i <= n; i++) {
 			if (!check[i]) {
-				sb.append(i).append("\n");
+				sb.append(cable[i][0]).append("\n");
+				count++;
 			}
 
-			if (max == 0) {
+			if (count == n - list.size()) {
 				break;
 			}
 		}
