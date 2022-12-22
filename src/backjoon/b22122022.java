@@ -42,13 +42,8 @@ public class b22122022 {
 					count.put(people2, 1);
 				}
 
-				
+				union(people1, people2);
 
-				if (!find(people1).equals(find(people2))) {
-					sb.append(find(people1) + " " + find(people2)).append("시작 :   \n");
-					union(people1, people2);
-				}
-				sb.append(find(people1) + " " + find(people2)).append("\n");
 			}
 		}
 
@@ -65,11 +60,12 @@ public class b22122022 {
 
 		Arrays.sort(people);
 
-		count.replace(people[0], count.get(people[0]) + count.get(people[1]));
+		if (!people[0].equals(people[1])) {
+			count.replace(people[0], count.get(people[0]) + count.get(people[1]));
+			parents.replace(people[1], people[0]);
+		}
 
-		parents.replace(people[1], people[0]);
-
-		//sb.append(count.get(people[0])).append("\n");
+		sb.append(count.get(people[0])).append("\n");
 
 	}
 
@@ -79,7 +75,9 @@ public class b22122022 {
 			return x;
 		}
 
-		return parents.replace(x, find(parents.get(x)));
+		parents.replace(x, find(parents.get(x)));
+
+		return parents.get(x);
 	}
 
 }
