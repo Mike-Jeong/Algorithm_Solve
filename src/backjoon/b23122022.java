@@ -45,6 +45,7 @@ public class b23122022 {
 
 		for (int i = 1; i <= n; i++) {
 			for (int j = i + 1; j <= n; j++) {
+
 				edges.add(new double[] { i, j, Math
 						.sqrt(Math.pow(points[i][0] - points[j][0], 2) + Math.pow(points[i][1] - points[j][1], 2)) });
 			}
@@ -54,7 +55,11 @@ public class b23122022 {
 
 			@Override
 			public int compare(double[] o1, double[] o2) {
-				return (int) (o1[2] - o2[2]);
+
+				if (o1[2] < o2[2]) {
+					return -1;
+				}
+				return 1;
 			}
 
 		});
